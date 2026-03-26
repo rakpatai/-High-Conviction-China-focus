@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CGSI Private Fund — กลยุทธ์การลงทุน High Conviction China Focus แบบ Core-Satellite">
+<meta property="og:title" content="High Conviction China Focus — Investment Strategy">
+<meta property="og:description" content="CGSI Private Fund — ผสมผสานวิสัยทัศน์ระยะยาวเข้ากับจังหวะระยะสั้น เพื่อเก็บเกี่ยวผลตอบแทนจากตลาดจีน">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#08101E">
+<title>High Conviction China Focus — CGSI Private Fund</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Sarabun:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-deep: #08101E;
+    --navy: #0C1729;
+    --navy-mid: #122040;
+    --navy-light: #1A2D52;
+    --navy-surface: #162544;
+    --gold: #D4AF5A;
+    --gold-light: #EDD99A;
+    --gold-dark: #A8862E;
+    --gold-muted: rgba(212,175,90,0.15);
+    --steel: #6B8DB5;
+    --steel-light: #8FAFD4;
+    --steel-dark: #4A6F94;
+    --text-primary: #EAE6DF;
+    --text-secondary: #B0AAAA;
+    --text-muted: #6E7A8A;
+    --green: #5EAA7D;
+    --red: #C45C5C;
+    --bg-card: rgba(22,37,68,0.55);
+    --border-subtle: rgba(212,175,90,0.1);
+    --border-hover: rgba(212,175,90,0.28);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--navy-deep);
+    color: var(--text-primary);
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 300;
+    line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 9999;
+  }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    overflow: hidden;
+    background: linear-gradient(175deg, var(--navy-deep) 0%, var(--navy) 40%, var(--navy-mid) 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background:
+      radial-gradient(ellipse at 50% 55%, rgba(212,175,90,0.06) 0%, transparent 45%),
+      radial-gradient(ellipse at 30% 30%, rgba(107,141,181,0.06) 0%, transparent 40%),
+      radial-gradient(ellipse at 70% 70%, rgba(212,175,90,0.03) 0%, transparent 35%);
+    animation: shimmer 10s ease-in-out infinite alternate;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 200px;
+    background: linear-gradient(to top, var(--navy-deep), transparent);
+    z-index: 1;
+  }
+
+  @keyframes shimmer {
+    from { transform: translateY(0) scale(1); opacity: 1; }
+    to   { transform: translateY(-18px) scale(1.04); opacity: 0.6; }
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 920px; }
+
+  .hero-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.2rem;
+    opacity: 0; animation: fadeUp 1s .3s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 7vw, 5.5rem);
+    font-weight: 900; line-height: 1.08;
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+    opacity: 0; animation: fadeUp 1s .5s forwards;
+  }
+
+  .hero h1 .gold-text {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+    font-weight: 300; font-style: italic;
+    color: var(--steel-light);
+    max-width: 680px;
+    margin: 1.5rem auto 0;
+    opacity: 0; animation: fadeUp 1s .7s forwards;
+  }
+
+  .hero-divider {
+    width: 90px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 2.8rem auto;
+    opacity: 0; animation: fadeUp 1s .9s forwards;
+  }
+
+  .hero-badges {
+    display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 1s 1.1s forwards;
+  }
+
+  .hero-badge {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: .45em 1.2em;
+    border: 1px solid rgba(212,175,90,0.2);
+    border-radius: 2px;
+    color: var(--steel-light);
+    background: rgba(18,32,64,0.5);
+    backdrop-filter: blur(4px);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .content-wrapper { max-width: 780px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+  .section-header {
+    display: flex; align-items: center; gap: 1.2rem;
+    margin: 5.5rem 0 2.5rem;
+  }
+
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; font-weight: 900;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.25; line-height: 1;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem; font-weight: 700;
+    color: var(--text-primary); line-height: 1.3;
+  }
+
+  p { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.6rem; }
+  p strong { color: var(--text-primary); font-weight: 600; }
+
+  .pull-quote {
+    position: relative;
+    margin: 3.5rem 0;
+    padding: 2.5rem 2.5rem 2.5rem 3rem;
+    border-left: 3px solid var(--gold);
+    background: linear-gradient(135deg, rgba(212,175,90,0.04), rgba(18,32,64,0.3));
+    border-radius: 0 3px 3px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-style: italic; font-weight: 400;
+    color: var(--text-primary); line-height: 1.7; margin: 0;
+  }
+
+  .architecture {
+    margin: 3.5rem 0;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .arch-block { padding: 2.5rem 2rem; position: relative; }
+
+  .arch-block--core {
+    background: linear-gradient(160deg, rgba(212,175,90,0.06), rgba(12,23,41,0.8));
+    border-right: 1px solid var(--border-subtle);
+  }
+
+  .arch-block--satellite {
+    background: linear-gradient(160deg, rgba(107,141,181,0.07), rgba(12,23,41,0.8));
+  }
+
+  .arch-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: .6rem;
+  }
+
+  .arch-eyebrow--gold { color: var(--gold); }
+  .arch-eyebrow--blue { color: var(--steel-light); }
+
+  .arch-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem; font-weight: 700;
+    color: var(--text-primary); margin-bottom: .5rem;
+  }
+
+  .arch-desc {
+    font-size: 0.9rem; color: var(--text-secondary);
+    line-height: 1.65; margin: 0;
+  }
+
+  .arch-timeframe {
+    display: inline-block; margin-top: 1rem;
+    font-size: 0.75rem; letter-spacing: 0.08em;
+    padding: .3em .8em; border-radius: 2px; font-weight: 600;
+  }
+
+  .arch-timeframe--gold {
+    background: rgba(212,175,90,0.12);
+    color: var(--gold);
+  }
+
+  .arch-timeframe--blue {
+    background: rgba(107,141,181,0.12);
+    color: var(--steel-light);
+  }
+
+  .pillars {
+    display: grid; grid-template-columns: 1fr;
+    gap: 1.2rem; margin: 2.5rem 0;
+  }
+
+  .pillar {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid rgba(107,141,181,0.1);
+    border-radius: 4px;
+    padding: 1.8rem 2rem;
+    transition: border-color .4s, transform .4s, box-shadow .4s;
+  }
+
+  .pillar:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+
+  .pillar-icon {
+    flex-shrink: 0;
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+  }
+
+  .pillar-icon--growth {
+    background: linear-gradient(135deg, var(--green), #3d8a5f);
+    color: var(--navy-deep);
+  }
+
+  .pillar-icon--turn {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    color: var(--navy-deep);
+  }
+
+  .pillar-icon--opp {
+    background: linear-gradient(135deg, var(--steel-light), var(--steel));
+    color: var(--navy-deep);
+  }
+
+  .pillar-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--text-primary); margin-bottom: .35rem;
+  }
+
+  .pillar-content p {
+    font-size: 0.92rem; color: var(--text-secondary);
+    margin: 0; line-height: 1.65;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(212,175,90,0.05), rgba(18,32,64,0.5));
+    border: 1px solid rgba(212,175,90,0.15);
+    border-radius: 4px;
+    padding: 2rem 2.5rem;
+    margin: 3rem 0;
+  }
+
+  .highlight-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .highlight-box p { margin-bottom: .8rem; font-size: 1rem; }
+  .highlight-box p:last-child { margin-bottom: 0; }
+
+  .duality {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; margin: 3rem 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px; overflow: hidden;
+  }
+
+  .duality-panel { padding: 2.2rem 2rem; }
+
+  .duality-panel--left {
+    background: linear-gradient(160deg, rgba(94,170,125,0.06), rgba(12,23,41,0.6));
+    border-right: 1px solid rgba(107,141,181,0.08);
+  }
+
+  .duality-panel--right {
+    background: linear-gradient(160deg, rgba(196,92,92,0.05), rgba(12,23,41,0.6));
+  }
+
+  .duality-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.68rem; letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: .5rem;
+  }
+
+  .duality-tag--green { color: var(--green); }
+  .duality-tag--red   { color: var(--red); }
+
+  .duality-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--text-primary); margin-bottom: .6rem;
+  }
+
+  .duality-text {
+    font-size: 0.9rem; color: var(--text-secondary);
+    line-height: 1.65; margin: 0;
+  }
+
+  .duality-action {
+    display: inline-block; margin-top: 1rem;
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: .35em .9em; border-radius: 2px;
+  }
+
+  .duality-action--buy {
+    background: rgba(94,170,125,0.12);
+    color: var(--green);
+  }
+
+  .duality-action--reassess {
+    background: rgba(196,92,92,0.1);
+    color: var(--red);
+  }
+
+  .risk-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem; margin: 2.5rem 0;
+  }
+
+  .risk-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(107,141,181,0.08);
+    border-radius: 4px;
+    padding: 1.6rem 1.4rem;
+    text-align: center;
+    transition: border-color .4s, box-shadow .4s;
+  }
+
+  .risk-card:hover {
+    border-color: rgba(196,92,92,0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .risk-card-icon {
+    font-size: 1.5rem; margin-bottom: .7rem;
+    color: var(--steel); opacity: .6;
+  }
+
+  .risk-card h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: .95rem; font-weight: 700;
+    color: var(--text-primary); margin-bottom: .4rem;
+  }
+
+  .risk-card p {
+    font-size: .82rem; color: var(--text-muted);
+    margin: 0; line-height: 1.55;
+  }
+
+  .stance-visual {
+    margin: 3rem 0;
+    display: flex; align-items: stretch;
+    border: 1px solid rgba(212,175,90,0.15);
+    border-radius: 4px; overflow: hidden;
+    background: linear-gradient(135deg, rgba(18,32,64,0.6), rgba(12,23,41,0.8));
+  }
+
+  .stance-bar {
+    width: 6px;
+    background: linear-gradient(180deg, var(--gold-light), var(--gold), var(--gold-dark));
+  }
+
+  .stance-body { padding: 2.2rem 2.5rem; flex: 1; }
+
+  .stance-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+
+  .stance-body p { font-size: 1rem; margin-bottom: .8rem; }
+  .stance-body p:last-child { margin-bottom: 0; }
+
+  .disclaimer {
+    margin-top: 5rem; padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+    font-size: .78rem; color: var(--text-muted);
+    line-height: 1.7; font-style: italic;
+  }
+
+  .fade-in {
+    opacity: 0; transform: translateY(25px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 700px) {
+    .content-wrapper { padding: 0 1.2rem 4rem; }
+    .architecture { grid-template-columns: 1fr; }
+    .arch-block--core { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+    .duality { grid-template-columns: 1fr; }
+    .duality-panel--left { border-right: none; border-bottom: 1px solid rgba(107,141,181,0.08); }
+    .risk-grid { grid-template-columns: 1fr; }
+    .section-number { font-size: 2.5rem; }
+    .section-title { font-size: 1.35rem; }
+    .pull-quote { padding: 1.5rem 1.5rem 1.5rem 2rem; }
+    .pull-quote p { font-size: 1.1rem; }
+    .highlight-box, .arch-block, .duality-panel, .stance-body { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Investment Strategy · Core-Satellite Framework</div>
+    <h1><span class="gold-text">High Conviction</span><br>China Focus</h1>
+    <p class="hero-subtitle">ผสมผสานวิสัยทัศน์ระยะยาวเข้ากับจังหวะระยะสั้น — เพื่อเก็บเกี่ยวผลตอบแทนจากตลาดที่เต็มไปด้วยโอกาสการเติบโต</p>
+    <div class="hero-divider"></div>
+    <div class="hero-badges">
+      <span class="hero-badge">CGSI Private Fund</span>
+    </div>
+  </div>
+</section>
+
+<div class="content-wrapper">
+
+  <div class="section-header fade-in">
+    <span class="section-number">01</span>
+    <h2 class="section-title">ภาพรวม — ทำไมต้อง Core-Satellite</h2>
+  </div>
+
+  <p class="fade-in">ตลาดหุ้นจีนเต็มไปด้วยความขัดแย้ง — มีทั้งบริษัทที่กำลังเขียนอนาคตของอุตสาหกรรมทั้งโลก และความผันผวนที่ทำให้นักลงทุนจำนวนมากถอยกลับก่อนจะเก็บเกี่ยวผลตอบแทน กลยุทธ์ <strong>High Conviction China Focus</strong> ถูกออกแบบมาเพื่อตอบโจทย์ทั้งสองด้านนี้พร้อมกัน</p>
+
+  <p class="fade-in">หัวใจของกลยุทธ์คือโครงสร้างพอร์ตแบบ <strong>Core-Satellite</strong> — ใช้แกนหลักจับโอกาสจากการ compounding ระยะยาว และส่วนเสริมจับโมเมนตัมระยะสั้น ทั้งสองส่วนทำงานร่วมกันเหมือนเครื่องยนต์สองจังหวะที่เสริมกำลังซึ่งกันและกัน</p>
+
+  <div class="architecture fade-in">
+    <div class="arch-block arch-block--core">
+      <div class="arch-eyebrow arch-eyebrow--gold">แกนหลัก</div>
+      <div class="arch-name">Core Portfolio</div>
+      <p class="arch-desc">คัดเลือกหุ้นจำนวนน้อยที่มี Competitive Advantage ชัดเจน ถือครองอย่างมีวินัยเพื่อปล่อยให้พลังของ compounding ทำงานเต็มที่</p>
+      <span class="arch-timeframe arch-timeframe--gold">3 – 5 ปี</span>
+    </div>
+    <div class="arch-block arch-block--satellite">
+      <div class="arch-eyebrow arch-eyebrow--blue">ส่วนเสริม</div>
+      <div class="arch-name">Satellite Portfolio</div>
+      <p class="arch-desc">ใช้ Trend Following กำหนดจังหวะซื้อขาย เป้าหมาย &gt;20% ต่อปี เสริม alpha และบริหาร drawdown อย่างมีวินัย</p>
+      <span class="arch-timeframe arch-timeframe--blue">≤ 1 ปี</span>
+    </div>
+  </div>
+
+  <div class="section-header fade-in">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Core Portfolio — ถือยาว ถือลึก</h2>
+  </div>
+
+  <p class="fade-in">ผู้จัดการกองทุนมองภาพไปข้างหน้า <strong>3-5 ปี</strong> คัดเลือกหุ้นจีนจำนวนไม่มากที่ผ่านการวิเคราะห์เชิงลึกจนมีความเชื่อมั่นสูง เน้นธุรกิจที่มีปัจจัยพื้นฐานแข็งแกร่ง มี Competitive Advantage ที่ชัดเจนและยั่งยืน พร้อมโอกาสเติบโตที่สอดรับกับ mega trends ของเศรษฐกิจจีน</p>
+
+  <p class="fade-in">การมองไกล 3-5 ปีทำให้ตัด noise ระยะสั้นออกไปได้ มุ่งวิเคราะห์ว่า <strong>ธุรกิจจะอยู่ตรงจุดไหนในอนาคต</strong> แล้วอดทนรอจังหวะเข้าซื้อในราคาที่ให้ Margin of Safety ที่ดี โดยเฉพาะช่วงที่ตลาดเกิดความกังวลระยะสั้นกดราคาให้ต่ำกว่ามูลค่าที่แท้จริง</p>
+
+  <div class="pull-quote fade-in">
+    <p>ซื้อในราคาที่มี Margin of Safety — แล้วปล่อยให้พลังของ compounding ทำงานเต็มที่ผ่านการเติบโตของกำไรและกระแสเงินสดของกิจการ</p>
+  </div>
+
+  <div class="section-header fade-in">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Satellite Portfolio — จับจังหวะ จับโมเมนตัม</h2>
+  </div>
+
+  <p class="fade-in">ส่วนเสริมของพอร์ตมองภาพไปข้างหน้า <strong>1 ปี</strong> ใช้ระบบ Trend Following เป็นเครื่องมือหลักกำหนดจังหวะซื้อ ขาย และตัดขาดทุนอย่างมีวินัย ตั้งเป้าผลตอบแทนมากกว่า 20% ภายในกรอบเวลา 1 ปี โดยมองหาหุ้น High Conviction 3 ประเภท</p>
+
+  <div class="pillars fade-in">
+    <div class="pillar">
+      <div class="pillar-icon pillar-icon--growth">G</div>
+      <div class="pillar-content">
+        <h4>Growth</h4>
+        <p>หุ้นเติบโตที่ outlook สดใสและราคาอยู่ใน trend ขาขึ้น ระบบ Trend Following ยืนยันโมเมนตัมเชิงบวก — ถือทำกำไรตราบใดที่ trend ยังไม่เปลี่ยน</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon pillar-icon--turn">T</div>
+      <div class="pillar-content">
+        <h4>Turnaround</h4>
+        <p>หุ้นที่ราคาลงลึกจากปัจจัยลบระยะสั้น แต่พื้นฐานยังดี — ไม่รีบรับมีดที่กำลังตก แต่รอสัญญาณยืนยันการกลับตัวจาก Trend Following ก่อนเข้าซื้อ</p>
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon pillar-icon--opp">O</div>
+      <div class="pillar-content">
+        <h4>Opportunistic</h4>
+        <p>หุ้นที่มีมูลค่าซ่อนอยู่แต่ตลาดยังไม่รับรู้ — เมื่อราคาเริ่มตอบสนองและ trend เริ่มก่อตัว จึงเข้าลงทุนเพื่อรับผลตอบแทนจากการ re-rating</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header fade-in">
+    <span class="section-number">04</span>
+    <h2 class="section-title">บริหารความเสี่ยง — Noise vs. Structural Change</h2>
+  </div>
+
+  <p class="fade-in">สิ่งสำคัญที่สุดในการบริหาร Core Portfolio คือความสามารถในการ <strong>แยกแยะให้ออกว่าปัจจัยที่ทำให้หุ้นลงนั้นเป็น noise ระยะสั้น หรือ structural change ระยะยาว</strong> เพราะการวินิจฉัยที่ต่างกันจะนำไปสู่การตัดสินใจที่ตรงกันข้ามอย่างสิ้นเชิง</p>
+
+  <div class="duality fade-in">
+    <div class="duality-panel duality-panel--left">
+      <div class="duality-tag duality-tag--green">กรณีที่ 1</div>
+      <div class="duality-title">Noise ระยะสั้น</div>
+      <p class="duality-text">Sentiment ลบชั่วคราว ข่าวตื่นตระหนกที่ไม่กระทบโครงสร้าง หรือแรงเทขายจากปัจจัยภายนอกที่ไม่เกี่ยวกับตัวบริษัท — ปัจจัยพื้นฐานยังเหมือนเดิม</p>
+      <span class="duality-action duality-action--buy">→ โอกาสเข้าซื้อเพิ่ม</span>
+    </div>
+    <div class="duality-panel duality-panel--right">
+      <div class="duality-tag duality-tag--red">กรณีที่ 2</div>
+      <div class="duality-title">Structural Change</div>
+      <p class="duality-text">เทคโนโลยีใหม่ทำลาย moat กฎระเบียบจำกัดศักยภาพถาวร หรือตลาดหดตัวอย่างไม่มีวันกลับ — ปัจจัยพื้นฐานเปลี่ยนแปลงอย่างแท้จริง</p>
+      <span class="duality-action duality-action--reassess">→ ประเมินมูลค่าใหม่ทั้งหมด</span>
+    </div>
+  </div>
+
+  <div class="highlight-box fade-in">
+    <h4>หัวใจสำคัญ</h4>
+    <p>หากเข้าใจผิดทั้งสองทาง ผลลัพธ์จะเจ็บปวดเท่าๆ กัน — <strong>ตื่นตระหนกขาย noise</strong> ทำให้พลาดโอกาสซื้อของดีในราคาถูก ขณะที่ <strong>ดื้อดึงถือ structural change</strong> โดยหลอกตัวเองว่าเป็นแค่ noise จะนำไปสู่การสูญเสียเงินทุนอย่างถาวร</p>
+    <p>วินัยในการวิเคราะห์อย่างซื่อสัตย์ต่อข้อมูลและปัจจัยพื้นฐาน — คือรากฐานของการบริหารความเสี่ยงทั้งหมด</p>
+  </div>
+
+  <div class="section-header fade-in">
+    <span class="section-number">05</span>
+    <h2 class="section-title">จุดอ่อนที่ต้องตระหนัก</h2>
+  </div>
+
+  <p class="fade-in">ทุกกลยุทธ์ล้วนมีช่วงเวลาที่ดีและไม่ดี ไม่มีกลยุทธ์ใดที่สมบูรณ์แบบ — การรู้จุดอ่อนของตัวเองดีที่สุดคือแนวป้องกันด่านแรก</p>
+
+  <div class="risk-grid fade-in">
+    <div class="risk-card">
+      <div class="risk-card-icon">⬇</div>
+      <h5>Core Drawdown</h5>
+      <p>ถือกระจุกตัว ไม่มีกลไกตัดขาดทุนระยะสั้น อาจเผชิญ drawdown ลึกในตลาดขาลง</p>
+    </div>
+    <div class="risk-card">
+      <div class="risk-card-icon">↔</div>
+      <h5>Whipsaw Risk</h5>
+      <p>Satellite อาจถูกสัญญาณหลอกจาก Trend Following ในช่วงตลาด sideway</p>
+    </div>
+    <div class="risk-card">
+      <div class="risk-card-icon">⚑</div>
+      <h5>Country Risk</h5>
+      <p>โฟกัสจีนตลาดเดียว — เสี่ยงด้านนโยบายและภูมิรัฐศาสตร์ที่คาดเดาได้ยาก</p>
+    </div>
+  </div>
+
+  <div class="section-header fade-in">
+    <span class="section-number">06</span>
+    <h2 class="section-title">จุดยืนของกองทุน</h2>
+  </div>
+
+  <p class="fade-in">แม้จะมีจุดอ่อน แต่ High Conviction China Focus มีจุดยืนชัดเจน — <strong>มุ่งเน้นสร้างผลตอบแทนระยะยาวที่สูง มากกว่าการไล่ตามผลตอบแทนระยะสั้น</strong></p>
+
+  <div class="stance-visual fade-in">
+    <div class="stance-bar"></div>
+    <div class="stance-body">
+      <h4>Two Engines, One Mission</h4>
+      <p><strong>Core</strong> สร้างมูลค่าจาก compounding ระยะยาว — ถือธุรกิจคุณภาพสูงข้ามรอบเศรษฐกิจ ปล่อยให้การเติบโตของกำไรเป็นตัวขับเคลื่อนราคาหุ้น</p>
+      <p><strong>Satellite</strong> เสริม alpha จากโอกาสระยะสั้น — บริหาร drawdown ผ่านวินัยของ Trend Following ตัดขาดทุนเร็ว ปล่อยกำไรวิ่ง</p>
+      <p style="color: var(--gold); font-weight: 600; margin-top: .5rem;">นักลงทุนที่เข้าใจธรรมชาติของกลยุทธ์นี้ และยืนหยัดถือลงทุนตามกรอบเวลาที่เหมาะสม จะมีโอกาสเก็บเกี่ยวผลตอบแทนที่โดดเด่นในภาพรวมระยะยาว</p>
+    </div>
+  </div>
+
+  <div class="pull-quote fade-in">
+    <p>เมื่อเข้าใจจุดแข็ง ยอมรับจุดอ่อน และมีวินัยในการวิเคราะห์อย่างซื่อสัตย์ — นั่นคือรากฐานที่แท้จริงของการลงทุนแบบ High Conviction</p>
+  </div>
+
+  <div class="disclaimer fade-in">
+    <strong>Disclaimer:</strong> บทความนี้จัดทำขึ้นเพื่อวัตถุประสงค์ในการให้ข้อมูลเท่านั้น ไม่ถือเป็นคำแนะนำในการลงทุน การซื้อ หรือขายหลักทรัพย์ใดๆ ผู้อ่านควรศึกษาข้อมูลเพิ่มเติมและพิจารณาปัจจัยความเสี่ยงต่างๆ ก่อนตัดสินใจลงทุน การลงทุนมีความเสี่ยง ผู้ลงทุนอาจได้รับเงินลงทุนคืนน้อยกว่าเงินลงทุนเริ่มแรก
+  </div>
+
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
