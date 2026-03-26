@@ -1,1 +1,1 @@
-# -High-Conviction-China-focus
+# High-Conviction-China-focus
